@@ -1,0 +1,30 @@
+{
+  "meals": [
+    {
+      "name": "breakfast",
+      "id": 1
+    },
+    {
+      "name": "lunch",
+      "id": 2
+    },
+    {
+      "name": "dinner",
+      "id": 3
+    },
+    {
+      "name": "dessert",
+      "id": 4
+    }
+  ],
+  "recipes": [
+    {
+      "title": "sandwich",
+      "author": "me",
+      "meal": "lunch",
+      "ingredients": "ham",
+      "directions": "eat ham",
+      "id": 1
+    }
+  ]
+}
