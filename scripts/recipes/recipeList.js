@@ -6,6 +6,11 @@ const contentTarget = document.querySelector(".recipe-list")
 
 const recipeListComponent = () => {
 
+  eventHub.addEventListener("recipeHasBeenEdited", event => {
+    const updatedRecipes = useRecipes()
+    render(updatedRecipes)
+  })
+
   eventHub.addEventListener("showRecipeButtonClicked", event => {
     const recipes = useRecipes()
     render(recipes)
@@ -20,6 +25,16 @@ const recipeListComponent = () => {
           render(theNewRecipes)
         }
       )
+    }
+
+    if (clickEvent.target.id.startsWith("edit-recipe--")) {
+      const [prefix, recipeId] = clickEvent.target.id.split("--")
+      const editEvent = new CustomEvent("editButtonClicked", {
+        detail: {
+          recipeId: recipeId
+        }
+      })
+      eventHub.dispatchEvent(editEvent)
     }
   })
 
