@@ -1,5 +1,7 @@
 import { useMeals } from "../meals/mealProvider.js"
-import { saveRecipe, getRecipes } from "./recipeProvider.js"
+import { saveRecipe, getRecipes, editRecipes, useRecipes } from "./recipeProvider.js"
+
+
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".recipe-form")
@@ -25,12 +27,27 @@ const recipeFormComponent = () => {
     }
   })
 
+  eventHub.addEventListener("click", clickEvent => {
+
+    console.log("please")
+    if (clickEvent.target.id === "show-recipes") {
+      console.log("help me")
+      const message = new CustomEvent("showRecipeButtonClicked")
+      eventHub.dispatchEvent(message)
+
+    }
+  })
+
+
+
+
   const render = () => {
     const meals = useMeals()
     console.log(meals)
     contentTarget.innerHTML = `
     <div class="recipe-form">
     <button id="saveRecipe">add recipe</button>
+    <button id="show-recipes">show recipes</button>
     <div>
     <input type="hidden" id="recipe-id"/>
     <label for="recipe-title">Title: </label>
@@ -60,5 +77,12 @@ const recipeFormComponent = () => {
   }
   render()
 }
+
+
+
+
+
+
+
 
 export default recipeFormComponent

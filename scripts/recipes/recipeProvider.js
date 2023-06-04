@@ -11,6 +11,16 @@ export const getRecipes = () => {
     .then(setRecipes)
 }
 
+export const editRecipes = recipesObject => {
+  return fetch(`http://localhost:8088/recipes/${recipesObject.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(recipesObject)
+  }).then(getRecipes)
+}
+
 export const deleteRecipe = (recipeId) => {
   return fetch(`http://localhost:8088/recipes/${recipeId}`, {
     method: "DELETE"
