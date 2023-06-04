@@ -9,7 +9,6 @@ const contentTarget = document.querySelector(".recipe-form")
 const recipeFormComponent = () => {
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveRecipe") {
-      console.log("recipe was saved")
       const newRecipe = {
         title: document.querySelector("#recipe-title").value,
         author: document.querySelector("#recipe-author").value,
@@ -29,9 +28,7 @@ const recipeFormComponent = () => {
 
   eventHub.addEventListener("click", clickEvent => {
 
-    console.log("please")
     if (clickEvent.target.id === "show-recipes") {
-      console.log("help me")
       const message = new CustomEvent("showRecipeButtonClicked")
       eventHub.dispatchEvent(message)
 
@@ -43,7 +40,6 @@ const recipeFormComponent = () => {
 
   const render = () => {
     const meals = useMeals()
-    console.log(meals)
     contentTarget.innerHTML = `
     <div class="recipe-form">
     <button id="saveRecipe">add recipe</button>

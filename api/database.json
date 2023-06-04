@@ -25,14 +25,6 @@
       "ingredients": "ham",
       "directions": "eat ham",
       "id": 1
-    },
-    {
-      "title": "pizza",
-      "author": "me",
-      "meal": "lunch",
-      "ingredients": "pepperoni ",
-      "directions": "cook in oven",
-      "id": 2
     }
   ]
 }
