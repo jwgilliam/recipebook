@@ -7,7 +7,6 @@ const setMeals = (mealsArray) => {
 }
 
 export const useMeals = () => {
-  console.log("test")
   return meals.slice()
 }
 
@@ -21,7 +20,6 @@ export const getMeals = () => {
   }).then(response => response.json())
     .then((mealsArray) => {
       meals = mealsArray.slice()
-      console.log(meals)
     })
 
 }
